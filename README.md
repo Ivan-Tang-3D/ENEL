@@ -78,6 +78,11 @@ pip install -e .
 # * for training
 pip install ninja
 pip install flash-attn
+
+# * for chamfer_dist
+git clone https://github.com/Pang-Yatian/Point-MAE.git
+cd ./extensions/chamfer_dist
+python setup.py install --user
 ```
 
 ### Data Preparation
