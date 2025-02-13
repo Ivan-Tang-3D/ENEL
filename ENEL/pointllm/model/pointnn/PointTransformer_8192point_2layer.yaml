@@ -1,0 +1,23 @@
+model:
+  LGA_dim:
+  - 2
+  - 2
+  - 2
+  NAME: PointNN
+  cls_dim: 40
+  depth: 12
+  drop_path_rate: 0.1
+  embed_dim: 288
+  encoder_dims: 256
+  group_size: 81
+  num_group: 512
+  num_heads: 6
+  num_stages: 3
+  point_dims: 3
+  projection_hidden_dim:
+  - 1024
+  - 2048
+  projection_hidden_layer: 2
+  trans_dim: 384
+  input_points: 1024
+npoints: 8192
