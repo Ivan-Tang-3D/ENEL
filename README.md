@@ -1,5 +1,3 @@
-# ENEL
-The official implementation of The paper "Exploring the Potential of Encoder-free Architectures in 3D LMMs"
 <br>
 <p align="center">
 <h1 align="center"><strong>ENEL: Exploring the Potential of Encoder-free Architectures in 3D LMMs</strong></h1>
