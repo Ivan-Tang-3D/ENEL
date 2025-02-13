@@ -38,7 +38,6 @@ We introduce <b>ENEL, an Encoder-free 3D Large Language Model capable of overcom
 - [🔗 Citation](#-citation)
 - [📄 License](#-license)
 - [📚 Related Work](#-related-work)
-- [👏 Acknowledgements](#-acknowledgements)
 
 
 ## 💬 Dialogue Examples
@@ -222,14 +221,5 @@ This work is under the <a rel="license" href="http://creativecommons.org/license
 ## 📚 Related Work
 Together, Let's make LLM for 3D great!
 - [Point-Bind & Point-LLM](https://arxiv.org/abs/2309.00615)
-- [PointLLM](https://arxiv.org/abs/2308.16911)
-- [ShapeLLM](https://arxiv.org/abs/2402.17766)
-
-
-## 👏 Acknowledgements
-- [LLaVA](https://github.com/haotian-liu/LLaVA): Our codebase is built upon LLaVA.
-- [Vicuna](https://github.com/lm-sys/FastChat): We use the Vicuna-7B and Vicuna-13B checkpoints.
-- [Objaverse](https://objaverse.allenai.org): We use models of the Objaverse dataset for training and evaluation.
-- [Cap3D](https://github.com/crockwell/Cap3D/): We use the Cap3D captioning data for our data generation.
 - [PointLLM](https://arxiv.org/abs/2308.16911)
 - [ShapeLLM](https://arxiv.org/abs/2402.17766)
