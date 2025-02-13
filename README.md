@@ -115,9 +115,9 @@ ENEL/data/anno_data
 1. Download the referencing GT `PointLLM_brief_description_val_200_GT.json` we use for the benchmarks on Objaverse dataset [here](https://huggingface.co/datasets/RunsenXu/PointLLM/blob/main/PointLLM_brief_description_val_200_GT.json), and put it in `ENEL/data/anno_data`.
 
 ### Training
-#### Download the Initial LLM and Point Encoder Weights
+#### Download the Initial LLM Weight
 1. In `ENEL` folder, create a directory named `checkpoints`.
-2. Download the pre-trained LLM and point encoder: [
+2. Download the pre-trained LLM: [
 PointLLM_7B_v1.1_init](https://huggingface.co/RunsenXu/PointLLM_7B_v1.1_init/tree/main). Put them in the `checkpoints` directory.
 
 #### Start Training
