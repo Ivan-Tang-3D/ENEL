@@ -18,15 +18,5 @@
   </p>
 </p>
 
-<p align="center">
-  <a href="" target='_**blank**'>
-    <img src="https://img.shields.io/badge/arXiv-2308.16911-blue?">
-  </a> 
-  <a href="" target='_blank'>
-    <img src="https://img.shields.io/badge/Paper-📖-blue?">
-  </a> 
-  <a href="" target='_blank'>
-    <img src="https://visitor-badge.laobi.icu/badge?page_id=OpenRobotLab.pointllm&left_color=gray&right_color=blue">
-  </a>
-</p>
+
 
