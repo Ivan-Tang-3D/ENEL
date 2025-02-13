@@ -122,29 +122,14 @@ scripts/ENEL_train_stage2.sh
 
 ### Evaluation
 #### Inferencing & ChatGPT/GPT-4 Evaluation & Traditional Metric Evaluation
-1. Run the following commands to infer the results.
-2. Get your OpenAI API key at [https://platform.openai.com/api-keys](https://platform.openai.com/api-keys).
-3. Different commands for inferencing on different benchmarks:
+1. Get your OpenAI API key at [https://platform.openai.com/api-keys](https://platform.openai.com/api-keys).
+2. Run the following commands to infer the results and evaluate.
+3. Different commands for inferencing and evaluating on different benchmarks:
 ```bash
 cd ENEL
 bash scripts/eval.sh
 ```
-4. The evaluation results will be saved in `{model_name}/evaluation` as another dict.
-Some of the metrics are explained as follows:
-```bash
-"average_score": The GPT-evaluated captioning score we report in our paper.
-"accuracy": The classification accuracy we report in our paper, including random choices made by ChatGPT when model outputs are vague or ambiguous and ChatGPT outputs "INVALID".
-"clean_accuracy": The classification accuracy after removing those "INVALID" outputs.
-"total_predictions": The number of predictions.
-"correct_predictions": The number of correct predictions.
-"invalid_responses": The number of "INVALID" outputs by ChatGPT.
-
-# Some other statistics for calling OpenAI API
-"prompt_tokens": The total number of tokens of the prompts for ChatGPT/GPT-4.
-"completion_tokens": The total number of tokens of the completion results from ChatGPT/GPT-4.
-"GPT_cost": The API cost of the whole evaluation process, in US Dollars 💵.
-```
-5.For the object captioning task, run the following command to evaluate model outputs with traditional metrics including BLEU, ROUGE, METEOR, Sentence-BERT, and SimCSE.
+4. The GPT-4 evaluation results will be saved in `{model_name}/evaluation` as another dict. For the object captioning task, the traditional metrics include BLEU, ROUGE, METEOR, Sentence-BERT, and SimCSE.
 
 ## 📝 TODO List
 - [x] Add training codes for stage1 with checkpoints.
