@@ -211,7 +211,7 @@ python pointllm/eval/traditional_evaluator.py --results_path /path/to/model_capt
 
 ## 🔗 Citation
 
-If you find our work and this codebase helpful, please consider starring this repo 🌟 and cite:
+If you find our work and this codebase helpful, please consider starring this repo 🌟 and cite.
 
 
 ## 📄 License
