@@ -122,14 +122,15 @@ scripts/ENEL_train_stage2.sh
 
 ### Evaluation
 #### Inferencing & ChatGPT/GPT-4 Evaluation & Traditional Metric Evaluation
-1. Get your OpenAI API key at [https://platform.openai.com/api-keys](https://platform.openai.com/api-keys).
-2. Run the following commands to infer the results and evaluate.
-3. Different commands for inferencing and evaluating on different benchmarks:
+1.Model Zoo: [https://huggingface.co/IvanTang/ENEL/tree/main](https://huggingface.co/IvanTang/ENEL/tree/main)
+2. Get your OpenAI API key at [https://platform.openai.com/api-keys](https://platform.openai.com/api-keys).
+3. Run the following commands to infer the results and evaluate.
+4. Different commands for inferencing and evaluating on different benchmarks:
 ```bash
 cd ENEL
 bash scripts/eval.sh
 ```
-4. The GPT-4 evaluation results will be saved in `{model_name}/evaluation` as another dict. For the object captioning task, the traditional metrics include BLEU, ROUGE, METEOR, Sentence-BERT, and SimCSE.
+5. The GPT-4 evaluation results will be saved in `{model_name}/evaluation` as another dict. For the object captioning task, the traditional metrics include BLEU, ROUGE, METEOR, Sentence-BERT, and SimCSE.
 
 ## 📝 TODO List
 - [x] Add training codes for stage1 with checkpoints.
