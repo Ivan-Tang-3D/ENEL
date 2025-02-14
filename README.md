@@ -45,6 +45,9 @@ Please refer to our paper for more results.
   <img src="assets/result.png" align="center" width="100%">
 </p>
 
+### Model Zoo
+Please refer to [https://huggingface.co/IvanTang/ENEL/tree/main](https://huggingface.co/IvanTang/ENEL/tree/main).
+
 ## 📦 Training and Evaluation
 ### Installation
 To start: 
@@ -122,7 +125,7 @@ scripts/ENEL_train_stage2.sh
 
 ### Evaluation
 #### Inferencing & ChatGPT/GPT-4 Evaluation & Traditional Metric Evaluation
-1.Model Zoo: [https://huggingface.co/IvanTang/ENEL/tree/main](https://huggingface.co/IvanTang/ENEL/tree/main)
+1. For inference, please download weights from Model Zoo: [https://huggingface.co/IvanTang/ENEL/tree/main](https://huggingface.co/IvanTang/ENEL/tree/main)
 2. Get your OpenAI API key at [https://platform.openai.com/api-keys](https://platform.openai.com/api-keys).
 3. Run the following commands to infer the results and evaluate.
 4. Different commands for inferencing and evaluating on different benchmarks:
