@@ -12,7 +12,7 @@ We introduce <b>ENEL, an Encoder-free 3D Large Language Model capable of overcom
 
 ## 🔥 News
 - [2023-02-13] We release the codes for training in the pre-training stage with corresponding checkpoints and the codes for model evaluation, including GPT-4 evaluation and traditional metric evaluation.
-- [2025-02-13] We release the [paper]() of ENEL;
+- [2025-02-13] We release the [paper](https://arxiv.org/pdf/2502.09620v1) of ENEL;
 
 <!-- contents with emoji -->
 ## 📋 Contents
