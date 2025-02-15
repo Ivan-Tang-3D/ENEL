@@ -12,7 +12,7 @@ Official repository for the paper "[Exploring the Potential of Encoder-free Arch
 We introduce <b>ENEL, an Encoder-free 3D Large Language Model capable of overcoming the challenges posed by encoder-based architectures</b>, including the inability to <b>adapt to varying point cloud resolutions</b> and the failure of encoder-extracted point features to <b>meet the semantic needs of Large Language Models</b>. Building upon PointLLM, we conduct a comprehensive investigation into how <b>the LLM can assume the role of the 3D encoder</b>. Based on the PointLLM dataset, our 7B model is evaluated across <b>three benchmark tasks: generative 3D object classification, 3D object captioning, and 3D VQA, with assessments performed using GPT-4 scoring and traditional metrics.</b>
 
 ## 🔥 News
-- [2023-02-13] We release the codes for training in the pre-training stage with corresponding checkpoints and the codes for model evaluation, including GPT-4 evaluation and traditional metric evaluation.
+- [2023-02-13] We release the codes for training in the pre-training stage with corresponding checkpoints and the codes for evaluation.
 - [2025-02-13] We release the [paper](https://arxiv.org/pdf/2502.09620v1) of ENEL;
 
 <!-- contents with emoji -->
