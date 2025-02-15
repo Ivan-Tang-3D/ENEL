@@ -193,7 +193,6 @@ export PYTHONPATH="/ENEL:$PYTHONPATH"
 CUDA_VISIBLE_DEVICES=0 python pointllm/eval/traditional_evaluator.py --results_path /path/to/model_captioning_output
 ```
 
-```
 
 ## 📝 TODO List
 - [x] Add training codes for stage1 with checkpoints.
