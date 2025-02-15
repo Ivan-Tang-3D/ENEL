@@ -23,7 +23,7 @@ We introduce <b>ENEL, an Encoder-free 3D Large Language Model capable of overcom
 - [📝 TODO List](#-todo-list)
 - [🔗 Citation](#-citation)
 - [📄 License](#-license)
-- [📚 Related Work](#-related-work)
+- [👏 Acknowledgements](#-acknowledgements)
 
 
 ## 💬 Dialogue Examples
