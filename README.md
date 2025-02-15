@@ -1,4 +1,3 @@
-<br>
 # Exploring the Potential of Encoder-free Architectures in 3D LMMs
 
 Official repository for the paper "[Exploring the Potential of Encoder-free Architectures in 3D LMMs](https://arxiv.org/pdf/2502.09620v1)".
@@ -149,7 +148,6 @@ If you find our work and this codebase helpful, please consider starring this re
 
 ## 📄 License
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a>
-<br />
 This work is under the <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
 
 ## 📚 Related Work
