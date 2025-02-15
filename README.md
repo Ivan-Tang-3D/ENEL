@@ -23,7 +23,7 @@ We introduce <b>ENEL, an Encoder-free 3D Large Language Model capable of overcom
 - [📝 TODO List](#-todo-list)
 - [🔗 Citation](#-citation)
 - [📄 License](#-license)
-- [📚 Related Work](#-related-work)
+- [👏 Acknowledgements](#-acknowledgements)
 
 
 ## 💬 Dialogue Examples
@@ -122,16 +122,77 @@ scripts/ENEL_train_stage1.sh
 ```
 
 ### Evaluation
-#### Inferencing & ChatGPT/GPT-4 Evaluation & Traditional Metric Evaluation
-1. For inference, please download weights from Model Zoo: [https://huggingface.co/IvanTang/ENEL/tree/main](https://huggingface.co/IvanTang/ENEL/tree/main)
-2. Get your OpenAI API key at [https://platform.openai.com/api-keys](https://platform.openai.com/api-keys).
-3. Run the following commands to infer the results and evaluate.
-4. Different commands for inferencing and evaluating on different benchmarks:
+#### Inferencing
+1. Run the following commands to infer the results.
+2. Different commands for inferencing on different benchmarks:
 ```bash
-cd ENEL
-bash scripts/eval.sh
+MODEL_NAME=
+LOG_SUFFIX=
+LOG_DIR="/ENEL/new_eval_logs"
+LOG_EDIR="/ENEL/new_eval_logs"
+
+export PYTHONPATH="/ENEL:$PYTHONPATH"
+
+# Object captioning on Objaverse
+CUDA_VISIBLE_DEVICES=1 python pointllm/eval/eval_objaverse.py --model_name $MODEL_NAME --task_type captioning --prompt_index 2 > $LOG_EDIR/try_obj_${LOG_SUFFIX}.log 2>&1 &
+
+# Open Vocabulary Classification on Objaverse
+CUDA_VISIBLE_DEVICES=2 python pointllm/eval/eval_objaverse.py  --model_name $MODEL_NAME --task_type classification --prompt_index 0 > $LOG_EDIR/try_objcls_${LOG_SUFFIX}.log 2>&1 &
 ```
-5. The GPT-4 evaluation results will be saved in `{model_name}/evaluation` as another dict. For the object captioning task, the traditional metrics include BLEU, ROUGE, METEOR, Sentence-BERT, and SimCSE.
+3. Please check the default command-line arguments of these two scripts. You can specify different prompts, data paths, and other parameters. 
+4. After inferencing, the results will be saved in `{model_name}/evaluation` as a dict with the following format:
+```bash
+{
+  "prompt": "",
+  "results": [
+    {
+      "object_id": "",
+      "ground_truth": "", 
+      "model_output": "",
+      "label_name": "" # only for classification on modelnet40
+    }
+  ]
+}
+```
+
+#### ChatGPT/GPT-4 Evaluation
+1. Get your OpenAI API key at [https://platform.openai.com/api-keys](https://platform.openai.com/api-keys).
+2. Please set the OpenAI API Key in the 40th line of [https://github.com/Ivan-Tang-3D/ENEL/blob/main/pointllm/eval/utils.py](https://github.com/Ivan-Tang-3D/ENEL/blob/main/pointllm/eval/utils.py).
+3. Run the following commands to evaluate the model outputs in parallel with ChatGPT/GPT-4 (which cost approximately $1.5 to $2.2 USD).
+```bash
+export PYTHONPATH="/ENEL:$PYTHONPATH"
+
+# Open Vocabulary Classification on Objaverse
+python pointllm/eval/evaluator.py --results_path /path/to/model_output --model_type gpt-4-0613 --eval_type open-free-form-classification --parallel --num_workers 15
+
+# Object captioning on Objaverse
+python pointllm/eval/evaluator.py --results_path /path/to/model_output --model_type gpt-4-0613 --eval_type object-captioning --parallel --num_workers 15
+```
+3. The evaluation script supports interruption and resumption. You can interrupt the evaluation process at any time by using `Ctrl+C`. This will save the temporary results. If an error occurs during the evaluation, the script will also save the current state. You can resume the evaluation from where it left off by running the same command again.
+4. The evaluation results will be saved in `{model_name}/evaluation` as another dict.
+Some of the metrics are explained as follows:
+```bash
+"average_score": The GPT-evaluated captioning score we report in our paper.
+"accuracy": The classification accuracy we report in our paper, including random choices made by ChatGPT when model outputs are vague or ambiguous and ChatGPT outputs "INVALID".
+"clean_accuracy": The classification accuracy after removing those "INVALID" outputs.
+"total_predictions": The number of predictions.
+"correct_predictions": The number of correct predictions.
+"invalid_responses": The number of "INVALID" outputs by ChatGPT.
+
+# Some other statistics for calling OpenAI API
+"prompt_tokens": The total number of tokens of the prompts for ChatGPT/GPT-4.
+"completion_tokens": The total number of tokens of the completion results from ChatGPT/GPT-4.
+"GPT_cost": The API cost of the whole evaluation process, in US Dollars 💵.
+```
+
+#### Traditional Metric Evaluation
+1. For the object captioning task, run the following command to evaluate model outputs with traditional metrics including BLEU, ROUGE, METEOR, Sentence-BERT, and SimCSE.
+```bash
+export PYTHONPATH="/ENEL:$PYTHONPATH"
+
+CUDA_VISIBLE_DEVICES=0 python pointllm/eval/traditional_evaluator.py --results_path /path/to/model_captioning_output
+```
+
 
 ## 📝 TODO List
 - [x] Add training codes for stage1 with checkpoints.
@@ -140,15 +201,29 @@ bash scripts/eval.sh
 
 ## 🔗 Citation
 
-If you find our work and this codebase helpful, please consider starring this repo 🌟 and cite.
+If you find our work and this codebase helpful, please consider starring this repo 🌟 and cite:
+```bibtex
+@misc{tang2025exploringpotentialencoderfreearchitectures,
+      title={Exploring the Potential of Encoder-free Architectures in 3D LMMs}, 
+      author={Yiwen Tang and Zoey Guo and Zhuhao Wang and Ray Zhang and Qizhi Chen and Junli Liu and Delin Qu and Zhigang Wang and Dong Wang and Xuelong Li and Bin Zhao},
+      year={2025},
+      eprint={2502.09620},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2502.09620}, 
+}
+```
 
 
 ## 📄 License
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a>
 This work is under the <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
 
-## 📚 Related Work
-Together, Let's make LLM for 3D great!
+## 👏 Acknowledgements
 - [Point-Bind & Point-LLM](https://arxiv.org/abs/2309.00615)
 - [PointLLM](https://arxiv.org/abs/2308.16911)
 - [ShapeLLM](https://arxiv.org/abs/2402.17766)
+- [LLaVA](https://github.com/haotian-liu/LLaVA)
+- [Vicuna](https://github.com/lm-sys/FastChat)
+- [Objaverse](https://objaverse.allenai.org)
+- [Cap3D](https://github.com/crockwell/Cap3D/)
