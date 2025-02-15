@@ -46,8 +46,9 @@ Please refer to our paper for more results.
   <img src="assets/result.png" align="center" width="100%">
 </p>
 
-### Model Zoo
-Please refer to [https://huggingface.co/IvanTang/ENEL/tree/main](https://huggingface.co/IvanTang/ENEL/tree/main).
+### Reminder of the Model Zoo
+In [https://huggingface.co/IvanTang/ENEL/tree/main](https://huggingface.co/IvanTang/ENEL/tree/main), to adapt to different paths, please modify the attributes: _name_or_path in the config.json file and special_tokens_map_file in the tokenizer_config.json file.
+
 
 ## 📦 Training and Evaluation
 ### Installation
