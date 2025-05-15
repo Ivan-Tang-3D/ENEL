@@ -20,7 +20,6 @@ We introduce <b>ENEL, an Encoder-free 3D Large Language Model capable of overcom
 - [💬 Dialogue Examples](#-dialogue-examples)
 - [🔍 Overview](#-overview)
 - [📦 Training and Evaluation](#-training-and-evaluation)
-- [📝 TODO List](#-todo-list)
 - [🔗 Citation](#-citation)
 - [📄 License](#-license)
 - [👏 Acknowledgements](#-acknowledgements)
@@ -197,11 +196,6 @@ export PYTHONPATH="/ENEL:$PYTHONPATH"
 CUDA_VISIBLE_DEVICES=0 python pointllm/eval/traditional_evaluator.py --results_path /path/to/model_captioning_output
 ```
 
-
-## 📝 TODO List
-- [x] Add training codes for stage1 with checkpoints.
-- [x] Add evaluation&inferencing codes.
-- [ ] Add training codes for stage2.
 
 ## 🔗 Citation
 
