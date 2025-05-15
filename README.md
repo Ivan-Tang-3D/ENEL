@@ -120,6 +120,10 @@ PointLLM_7B_v1.1_init](https://huggingface.co/RunsenXu/PointLLM_7B_v1.1_init/tre
 cd ENEL
 scripts/ENEL_train_stage1.sh
 ```
+2. After stage-1 training, start stage-2 training:
+```bash
+scripts/ENEL_train_stage2.sh
+```
 
 ### Evaluation
 #### Inferencing
