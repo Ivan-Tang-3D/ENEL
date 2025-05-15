@@ -121,6 +121,79 @@ cd ENEL
 scripts/ENEL_train_stage1.sh
 ```
 
+### Evaluation
+#### Inferencing
+1. Run the following commands to infer the results.
+2. Different commands for inferencing on different benchmarks:
+```bash
+MODEL_NAME=
+LOG_SUFFIX=
+LOG_DIR="/ENEL/new_eval_logs"
+LOG_EDIR="/ENEL/new_eval_logs"
+
+export PYTHONPATH="/ENEL:$PYTHONPATH"
+
+# Object captioning on Objaverse
+CUDA_VISIBLE_DEVICES=1 python pointllm/eval/eval_objaverse.py --model_name $MODEL_NAME --task_type captioning --prompt_index 2 > $LOG_EDIR/try_obj_${LOG_SUFFIX}.log 2>&1 &
+
+# Open Vocabulary Classification on Objaverse
+CUDA_VISIBLE_DEVICES=2 python pointllm/eval/eval_objaverse.py  --model_name $MODEL_NAME --task_type classification --prompt_index 0 > $LOG_EDIR/try_objcls_${LOG_SUFFIX}.log 2>&1 &
+```
+3. Please check the default command-line arguments of these two scripts. You can specify different prompts, data paths, and other parameters. 
+4. After inferencing, the results will be saved in `{model_name}/evaluation` as a dict with the following format:
+```bash
+{
+  "prompt": "",
+  "results": [
+    {
+      "object_id": "",
+      "ground_truth": "", 
+      "model_output": "",
+      "label_name": "" # only for classification on modelnet40
+    }
+  ]
+}
+```
+
+#### ChatGPT/GPT-4 Evaluation
+1. Get your OpenAI API key at [https://platform.openai.com/api-keys](https://platform.openai.com/api-keys).
+2. Please set the OpenAI API Key in the 40th line of [https://github.com/Ivan-Tang-3D/ENEL/blob/main/pointllm/eval/utils.py](https://github.com/Ivan-Tang-3D/ENEL/blob/main/pointllm/eval/utils.py).
+3. Run the following commands to evaluate the model outputs in parallel with ChatGPT/GPT-4 (which cost approximately $1.5 to $2.2 USD).
+```bash
+export PYTHONPATH="/ENEL:$PYTHONPATH"
+
+# Open Vocabulary Classification on Objaverse
+python pointllm/eval/evaluator.py --results_path /path/to/model_output --model_type gpt-4-0613 --eval_type open-free-form-classification --parallel --num_workers 15
+
+# Object captioning on Objaverse
+python pointllm/eval/evaluator.py --results_path /path/to/model_output --model_type gpt-4-0613 --eval_type object-captioning --parallel --num_workers 15
+```
+3. The evaluation script supports interruption and resumption. You can interrupt the evaluation process at any time by using `Ctrl+C`. This will save the temporary results. If an error occurs during the evaluation, the script will also save the current state. You can resume the evaluation from where it left off by running the same command again.
+4. The evaluation results will be saved in `{model_name}/evaluation` as another dict.
+Some of the metrics are explained as follows:
+```bash
+"average_score": The GPT-evaluated captioning score we report in our paper.
+"accuracy": The classification accuracy we report in our paper, including random choices made by ChatGPT when model outputs are vague or ambiguous and ChatGPT outputs "INVALID".
+"clean_accuracy": The classification accuracy after removing those "INVALID" outputs.
+"total_predictions": The number of predictions.
+"correct_predictions": The number of correct predictions.
+"invalid_responses": The number of "INVALID" outputs by ChatGPT.
+
+# Some other statistics for calling OpenAI API
+"prompt_tokens": The total number of tokens of the prompts for ChatGPT/GPT-4.
+"completion_tokens": The total number of tokens of the completion results from ChatGPT/GPT-4.
+"GPT_cost": The API cost of the whole evaluation process, in US Dollars 💵.
+```
+
+#### Traditional Metric Evaluation
+1. For the object captioning task, run the following command to evaluate model outputs with traditional metrics including BLEU, ROUGE, METEOR, Sentence-BERT, and SimCSE.
+```bash
+export PYTHONPATH="/ENEL:$PYTHONPATH"
+
+CUDA_VISIBLE_DEVICES=0 python pointllm/eval/traditional_evaluator.py --results_path /path/to/model_captioning_output
+```
+
+
 ## 📝 TODO List
 - [x] Add training codes for stage1 with checkpoints.
 - [x] Add evaluation&inferencing codes.
