@@ -1,8 +1,8 @@
 # Exploring the Potential of Encoder-free Architectures in 3D LMMs
 
-Official repository for the paper "[Exploring the Potential of Encoder-free Architectures in 3D LMMs](https://arxiv.org/pdf/2502.09620v1)".
+Official repository for the paper "[Exploring the Potential of Encoder-free Architectures in 3D LMMs](https://arxiv.org/pdf/2502.09620v2)".
 
-[[📖 Paper](https://arxiv.org/pdf/2502.09620v1)] [[🤗 HF Checkpoints for stage1](https://huggingface.co/IvanTang/ENEL/tree/main)] 
+[[📖 Paper](https://arxiv.org/pdf/2502.09620v2)] [[🤗 HF Checkpoints for stage1](https://huggingface.co/IvanTang/ENEL/tree/main)] 
 
 ## 🏠 About
 <!-- ![Teaser](assets/teaser.png) -->
@@ -13,7 +13,7 @@ We introduce <b>ENEL, an Encoder-free 3D Large Language Model capable of overcom
 
 ## 🔥 News
 - [2023-02-13] We release the codes for training in the pre-training stage with corresponding checkpoints and the codes for evaluation.
-- [2025-02-13] We release the [paper](https://arxiv.org/pdf/2502.09620v1) of ENEL;
+- [2025-02-13] We release the [paper](https://arxiv.org/pdf/2502.09620v2) of ENEL;
 
 <!-- contents with emoji -->
 ## 📋 Contents
