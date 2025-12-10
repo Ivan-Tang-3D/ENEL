@@ -2,7 +2,7 @@
 
 Official repository for the paper "[Exploring the Potential of Encoder-free Architectures in 3D LMMs](https://arxiv.org/pdf/2502.09620)".
 
-[[📖 Paper](https://arxiv.org/pdf/2502.09620v2)] [[🤗 HF Checkpoints for stage1](https://huggingface.co/IvanTang/ENEL/tree/main)] 
+[[📖 Paper](https://arxiv.org/pdf/2502.09620)] [[🤗 HF Checkpoints for stage1](https://huggingface.co/IvanTang/ENEL/tree/main)] 
 
 ## 🏠 About
 <!-- ![Teaser](assets/teaser.png) -->
