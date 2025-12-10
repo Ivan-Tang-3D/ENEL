@@ -201,14 +201,11 @@ CUDA_VISIBLE_DEVICES=0 python pointllm/eval/traditional_evaluator.py --results_p
 
 If you find our work and this codebase helpful, please consider starring this repo 🌟 and cite:
 ```bibtex
-@misc{tang2025exploringpotentialencoderfreearchitectures,
-      title={Exploring the Potential of Encoder-free Architectures in 3D LMMs}, 
-      author={Yiwen Tang and Zoey Guo and Zhuhao Wang and Ray Zhang and Qizhi Chen and Junli Liu and Delin Qu and Zhigang Wang and Dong Wang and Xuelong Li and Bin Zhao},
-      year={2025},
-      eprint={2502.09620},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV},
-      url={https://arxiv.org/abs/2502.09620}, 
+@article{tang2025exploring,
+  title={Exploring the potential of encoder-free architectures in 3d lmms},
+  author={Tang, Yiwen and Guo, Zoey and Wang, Zhuhao and Zhang, Ray and Chen, Qizhi and Liu, Junli and Qu, Delin and Wang, Zhigang and Wang, Dong and Li, Xuelong and others},
+  journal={arXiv preprint arXiv:2502.09620},
+  year={2025}
 }
 ```
 
