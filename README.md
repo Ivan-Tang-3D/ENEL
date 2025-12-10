@@ -42,7 +42,7 @@ The encoder-free 3D LMM directly utilizes a token embedding module to convert po
 ### Experiment Results
 Please refer to our paper for more results.
 <p align="center">
-  <img src="assets/result.png" align="center" width="100%">
+  <img src="assets/result_new.png" align="center" width="100%">
 </p>
 
 ### Reminder of the Model Zoo
